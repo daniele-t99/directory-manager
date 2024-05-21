@@ -41,6 +41,9 @@ export function createDir(filepath: string){
         fs.mkdirSync(filepath);
         console.log("The directory has been created successfully");
     }
+    else{
+        console.log("The directory already exists")
+    }
 }
 
 export function createFile(filepath: string){
