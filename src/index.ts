@@ -19,7 +19,7 @@ const options = program.opts();
 
 console.log(figlet.textSync("Dir Manager"));
 
-async function listDirCont(filepath: string){
+export async function listDirCont(filepath: string){
     try{
         const files = await fs.promises.readdir(filepath);
         const detailedFilePromises = files.map(async (file: string) =>{
@@ -36,14 +36,14 @@ async function listDirCont(filepath: string){
     }
 }
 
-function createDir(filepath: string){
+export function createDir(filepath: string){
     if(!fs.existsSync(filepath)){
         fs.mkdirSync(filepath);
         console.log("The directory has been created successfully");
     }
 }
 
-function createFile(filepath: string){
+export function createFile(filepath: string){
     fs.openSync(filepath, "w");
     console.log("An empty file has been created");
 }
